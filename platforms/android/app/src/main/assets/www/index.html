@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>web1</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<style type="text/css">
+			#list {
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<ol id="list">
+			<li id="first">Primer elemento</li>
+			<li id="second">Segundo elemento</li>
+		</ol>
+	
+		<button onclick="addElem()">Insertar Elemento</button>
+		
+		<input id="datos" type="text">
+		
+		<script type="text/javascript">
+			var second = document.getElementById("second");
+			second.innerHTML = "Algo extra";
+			
+			//$("#second").html("EvEn different");
+			
+			function addElem() {
+				var list = document.getElementById("list");
+				var newEl = document.createElement("li");
+				var texto = document.getElementById("datos").value;
+				newEl.innerHTML = texto;
+				list.appendChild(newEl);
+				
+				//var list = $("#list");
+				
+				//var newEl = $("<li>New Element</li>");
+				//$("#list").append(newEl);
+			}
+			
+		</script>		
+		
+		
+	</body>
+</html>
