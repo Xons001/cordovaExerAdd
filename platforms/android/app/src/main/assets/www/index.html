@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>web1</title>
+		<title>Web Sean</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<style type="text/css">
 			#list {
@@ -14,7 +14,9 @@
 			<li id="second">Segundo elemento</li>
 		</ol>
 	
-		<button onclick="addElem()">Insertar Elemento</button>
+		<button onclick="addElem()">Insertar elemento</button>
+		<button onclick="removeElem()">Eliminar ultimo elemento</button>
+
 		
 		<input id="datos" type="text">
 		
@@ -35,6 +37,12 @@
 				
 				//var newEl = $("<li>New Element</li>");
 				//$("#list").append(newEl);
+			}
+			
+			function removeElem() {
+				var list = document.getElementById("list");
+				var delEl = document.remove("li");
+				$("#delEl li:last").remove();
 			}
 			
 		</script>		

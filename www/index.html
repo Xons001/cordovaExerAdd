@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>web1</title>
+		<title>Web Sean</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<style type="text/css">
 			#list {
@@ -10,34 +10,45 @@
 	</head>
 	<body>
 		<ol id="list">
-			<li id="first">Primer elemento</li>
-			<li id="second">Segundo elemento</li>
+			<li id="first">Primer elemento <button>Eliminar</button></li>
+			<li id="second">Segundo elemento <button>Eliminar</button></li>
 		</ol>
 	
-		<button onclick="addElem()">Insertar Elemento</button>
+		<button onclick="addElem()">Insertar elemento</button>
+		
+
 		
 		<input id="datos" type="text">
 		
 		<script type="text/javascript">
-			var second = document.getElementById("second");
-			second.innerHTML = "Algo extra";
-			
+		
 			//$("#second").html("EvEn different");
 			
 			function addElem() {
 				var list = document.getElementById("list");
 				var newEl = document.createElement("li");
 				var texto = document.getElementById("datos").value;
-				newEl.innerHTML = texto;
-				list.appendChild(newEl);
+								
+				//newEl.innerHTML = texto + "<button onclick='removeElem()'>Eliminar</button>";
+							
+				//list.appendChild(newEl);
 				
-				//var list = $("#list");
+				//list.appendChild(newEl);
 				
-				//var newEl = $("<li>New Element</li>");
-				//$("#list").append(newEl);
+				
+				
+				var list = $("#list");
+				
+				var newEl = $("<li>" + texto + " <button>Eliminar</button></li>");
+				$("#list").append(newEl);
+				localStorage.setItem("Tabla", texto);
+				
+				
 			}
-			
-		</script>		
+			$('ol').on('click','button', function(){
+					$(this).closest("li").remove();
+			});			
+		</script>
 		
 		
 	</body>
