@@ -1,4 +1,4 @@
-#Thu Mar 21 19:34:22 CET 2019
+#Mon Mar 25 20:13:05 CET 2019
 base.0=C\:\\Users\\TNB-20\\proj1\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex
