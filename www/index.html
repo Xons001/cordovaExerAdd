@@ -10,10 +10,9 @@
 	</head>
 	<body>
 		<ol id="list">
-			<li id="first">Primer elemento <button>Eliminar</button></li>
-			<li id="second">Segundo elemento <button>Eliminar</button></li>
+			
 		</ol>
-	
+		
 		<button onclick="addElem()">Insertar elemento</button>
 		
 
@@ -23,6 +22,18 @@
 		<script type="text/javascript">
 		
 			//$("#second").html("EvEn different");
+			var numId = localStorage.length+1; 
+			localStorage.setItem("0", "Primer elemento");
+			localStorage.setItem("1", "Segundo elemento");
+			
+			for (var i = 0; i < localStorage.length; i++){
+				var liLocal = localStorage.getItem(localStorage.key(i));
+				var elementos = $("<li>" + liLocal + " <button>Eliminar</button></li>");
+				
+				$("#list").append(elementos);				
+			}
+			
+			//localStorage.removeItem("Tabla");
 			
 			function addElem() {
 				var list = document.getElementById("list");
@@ -34,22 +45,33 @@
 				//list.appendChild(newEl);
 				
 				//list.appendChild(newEl);
+				localStorage.setItem(numId, texto);
 				
-				
-				
+				numId++;
+					
 				var list = $("#list");
 				
 				var newEl = $("<li>" + texto + " <button>Eliminar</button></li>");
 				$("#list").append(newEl);
-				localStorage.setItem("Tabla", texto);
-				
 				
 			}
 			$('ol').on('click','button', function(){
-					$(this).closest("li").remove();
+				var txt = $(this).closest("li").text();
+				var substr = txt.substr(0, txt.length-9);
+				
+				var keys = Object.keys(localStorage);
+				console.log(keys);
+				for (var i = 0; i < localStorage.length; i++){
+					var value = localStorage.getItem(localStorage.key(i));
+					if (value == substr){
+						localStorage.removeItem(keys[i]);
+					}
+				} 
+				
+				$(this).closest("li").remove();
+				console.log(substr);
+					
 			});			
 		</script>
-		
-		
 	</body>
 </html>
